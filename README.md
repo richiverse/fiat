@@ -2,7 +2,7 @@
 **Fi**rehose to **At**hena
 
 ## Features
-* Stream arbitrary data using json-scema validation to AWS Athena (s3 backed warehouse)
+* Stream arbitrary data using json-schema validation to AWS Athena (s3 backed warehouse)
 
 
 ## Walkthrough
