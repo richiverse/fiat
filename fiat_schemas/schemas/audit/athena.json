@@ -1,0 +1,13 @@
+{
+	"columns": [
+		{"uuid": "string"},
+		{"timestamp": "string"},
+		{"app": "string"},
+		{"email": "string"},
+		{"task": "string"},
+		{"task_args": "string"},
+		{"tags": "string"},
+		{"ticket_id": "string"}
+	]
+}
+

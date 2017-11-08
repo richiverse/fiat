@@ -1,0 +1,31 @@
+{
+	"test": {
+		"apigateway_enabled": false,
+		"runtime": "python3.6",
+		"aws_region": "us-east-1",
+		"profile_name": "<your-profile-name>",
+		"project_name": "firehose_to_athena",
+		"keep_warm": false,
+		"s3_bucket": "<your-bucket-name>",
+		"manage_roles": true,
+		"role_name": "ZappaLambdaExecution",
+		"environment_variables": {
+			"ATHENA_BUCKET": "<bucket-where-athena-tables-stored"
+		},
+		"events": [
+			{
+			    "function": "firehose_to_athena.main",
+			    "event_source": {
+				"arn":  "arn:aws:s3:::<your-firehose-bucket>",
+				"events": [
+				    "s3:ObjectCreated:Put"
+				]
+			    }
+			},
+			{
+			    "function": "add_partitions.main",
+			    "expression": "rate(1 day)"
+			}
+		]
+	}
+}

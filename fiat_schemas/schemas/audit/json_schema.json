@@ -1,0 +1,39 @@
+{
+	"type": "object",
+	"properties":
+	{
+		"app": {
+			"enum": [
+				"jupyterhub", "hat", "koala",
+				"apollo", "turnstile", "treasury",
+				"import-tool", "io", "audit"
+			]
+		},
+	       	"email": {
+			"type": "string",
+		       	"format": "email"
+		}, 
+		"task": {
+			"type": "string",
+		       	"pattern": "\\b[a-z0-9_]+\\b"
+		},
+		"task_args": {
+			"type": "object"
+		},
+		"ticket_id": {
+			"type": "string",
+			"pattern": "\\b[a-z]{2,}-[0-9]+\\b"
+		},
+		"tags": {
+			"type": "object",
+			"patternProperties": {
+				".{1,}": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"required": [
+		"app", "email", "task"
+	]
+}
